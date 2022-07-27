@@ -1,5 +1,6 @@
 @import-normalize;
 
+/* Container styles */
 #mainContainer {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -7,4 +8,15 @@
 #mainContainer > div > div {
   min-height: 100vh;
   background-color: white;
+}
+
+/* Header Styles */
+header {
+  text-align: center;
+  padding: 40px;
+}
+
+header img {
+  height: 45px;
+  width: 45px;
 }
