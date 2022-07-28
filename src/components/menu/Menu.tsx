@@ -1,19 +1,22 @@
 import React from "react";
 
-import { Nav } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { menu } from "../../App";
 
 export default function Menu() {
   return (
-    <Nav
-      activeKey="/home"
-      onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-    >
-      {menu.map((link) => (
-        <Nav.Item>
-          <Nav.Link href={link.route}>{link.text}</Nav.Link>
-        </Nav.Item>
-      ))}
-    </Nav>
+    <Navbar expand="lg">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          {menu.map((link) => (
+            <NavLink key={link.text} to={link.route}>
+              {link.text}
+            </NavLink>
+          ))}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
