@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { menu } from "../../App";
+
+import { mainContext } from "../../App";
 
 export default function Menu() {
+  const { menu } = useContext(mainContext);
+
   return (
     <Navbar expand="lg">
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          {menu.map((link) => (
-            <NavLink key={link.text} to={link.route}>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Nav>
+          {menu.map((link: any) => (
+            <NavLink key={link.text} to={link.route} className={link.className}>
               {link.text}
             </NavLink>
           ))}
